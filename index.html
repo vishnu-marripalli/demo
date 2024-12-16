@@ -1,62 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page with Demo Video</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-      text-align: center;
-    }
-    header {
-      background-color: #937DC2;
-      color: #fff;
-      padding: 20px;
-    }
-    .content {
-      margin: 30px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .content h1 {
-      margin-top: 0;
-    }
-    .video-container {
-      margin: 20px 0;
-    }
-    video {
-      width: 100%;
-      height: 500px;
-      border: none;
-      border-radius: 10px;
-    }
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 0;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nexvo Inventory Management Software - Streamline your inventory operations">
+    <title>Nexvo Inventory Management Software</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #937DC2;
+            --secondary-color: #C689C6;
+            --accent-color: #FFB84C;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            margin: 2rem 0;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            padding: 1.5rem;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
- 
+    <header>
+        <nav>
+            <div class="logo">
+                <!-- <i class="fas fa-boxes"></i> -->
+                 <img src="./60.png" alt="">
+                Nexvo
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#demo">Demo</a>
+                <!-- <a href="#pricing">Pricing</a> -->
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-  <div class="content">
-   
-    <div class="video-container">
-    <video src="inventory sample-1.mp4" controls></video>      
-<!-- <iframe src="https://www.youtube.com/embed/example_video_id" allowfullscreen></iframe> -->
+    <section class="hero">
+        <h1>Transform Your Inventory Management</h1>
+        <p>Streamline operations, reduce costs, and boost efficiency with Nexvo's powerful inventory management solution.</p>
+        <a href="#demo" class="cta-button">Watch Demo</a>
+    </section>
+
+    <div class="content">
+        <div id="demo" class="video-container">
+            <video src="nexvo inventory sample - Made with Clipchamp.mp4" controls></video>
+        </div>
+
+        <section id="features" class="features">
+            <div class="feature-card">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h3>Real-time Tracking</h3>
+                <p>Monitor your inventory levels in real-time with accurate tracking and automated alerts.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt feature-icon"></i>
+                <h3>Mobile Access</h3>
+                <p>Manage your inventory on-the-go with our responsive mobile application.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-sync feature-icon"></i>
+                <h3>Auto Sync</h3>
+                <p>Seamless synchronization across all your devices and locations.</p>
+            </div>
+        </section>
     </div>
-  </div>
 
- 
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Nexvo</h3>
+                <p>Making inventory management simple and efficient.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>Email: nexvosolutions@gmail.com</p>
+                <p>Phone: 8309459006</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
